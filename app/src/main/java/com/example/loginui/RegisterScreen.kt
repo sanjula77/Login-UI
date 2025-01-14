@@ -118,12 +118,12 @@ fun RegisterScreen(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Don't have an account?",
+                text = "Already have an account?",
                 fontSize = 14.sp,
                 modifier = Modifier.padding(end = 5.dp)
             )
             Text(
-                text = "Register",
+                text = "Login",
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.clickable {  }
