@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
             LoginUITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     LoginScreen(modifier = Modifier.padding(innerPadding))
+                    RegisterScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
