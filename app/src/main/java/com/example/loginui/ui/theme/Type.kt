@@ -11,7 +11,7 @@ import com.example.loginui.R
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily(Font(R.font.popin)),
+        fontFamily = FontFamily(Font(R.font.poppinsregular)),
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,

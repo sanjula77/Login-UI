@@ -7,10 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.loginui.navigation.Screen
 import com.example.loginui.ui.theme.LoginUITheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +22,38 @@ class MainActivity : ComponentActivity() {
         setContent {
             LoginUITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginScreen(modifier = Modifier.padding(innerPadding))
-                    RegisterScreen(modifier = Modifier.padding(innerPadding))
+                    Navigation(modifier = Modifier.padding(innerPadding))
+                    //RegisterScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun Navigation(
+    modifier: Modifier = Modifier
+) {
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = Screen.LoginScreen
+    ) {
+        composable<Screen.LoginScreen> {
+            LoginScreen(
+                onGoToNextScreen = {
+                    navController.navigate(Screen.RegisterScreen)
+                },
+                modifier = modifier
+            )
+        }
+        composable<Screen.RegisterScreen> {
+            RegisterScreen(
+                onGoBack = {
+                    navController.popBackStack()
+                },
+                modifier = modifier
+            )
         }
     }
 }

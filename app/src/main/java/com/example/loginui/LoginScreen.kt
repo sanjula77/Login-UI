@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text2.input.TextFieldState
+import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Email
@@ -24,17 +24,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.loginui.desing.CustomTextField
 import com.example.loginui.desing.AuthOption
 
-@OptIn(ExperimentalFoundationApi::class)
-@Preview
 @Composable
 fun LoginScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onGoToNextScreen: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -118,7 +116,9 @@ fun LoginScreen(
                 text = "Register",
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.clickable {  }
+                modifier = Modifier.clickable {
+                    onGoToNextScreen()
+                }
             )
         }
         Spacer(modifier = Modifier.height(0.dp))

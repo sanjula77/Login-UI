@@ -3,11 +3,11 @@ package com.example.loginui.desing
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.text2.BasicTextField2
-import androidx.compose.foundation.text2.input.TextFieldLineLimits
-import androidx.compose.foundation.text2.input.TextFieldState
-import androidx.compose.foundation.text2.input.rememberTextFieldState
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +18,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CustomTextField(
     modifier: Modifier = Modifier,
@@ -58,7 +57,6 @@ fun CustomTextField(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun StandardTextField(
     modifier: Modifier = Modifier,
@@ -71,7 +69,7 @@ fun StandardTextField(
     onLeadingClick: () -> Unit = {},
     onTrailingClick: () -> Unit = {}
 ) {
-    BasicTextField2(
+    BasicTextField(
         state = textFieldState,
         textStyle = LocalTextStyle.current.copy(
             color = MaterialTheme.colorScheme.onBackground
@@ -135,7 +133,6 @@ fun StandardTextField(
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PasswordTextField(
     modifier: Modifier = Modifier,
@@ -147,7 +144,7 @@ fun PasswordTextField(
     onLeadingClick: () -> Unit = {},
     onTrailingClick: () -> Unit = {}
 ) {
-    BasicTextField2(
+    BasicTextField(
         state = textFieldState,
         textStyle = LocalTextStyle.current.copy(
             color = MaterialTheme.colorScheme.onBackground
